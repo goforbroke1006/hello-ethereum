@@ -28,6 +28,11 @@ Problem: have no idea what steps required to do it.
 
 ### Useful links
 
+* https://docs.alchemy.com/
+* https://www.youtube.com/watch?v=veBu03A6ptw&list=PLMj8NvODurfEYLsuiClgikZBGDfhwdcXF&ab_channel=Alchemy
+* https://docs.alchemy.com/docs
+* https://university.alchemy.com/
+
 * https://goerli.net/
 * https://goerli.etherscan.io/
 * https://dashboard.alchemy.com/composer
