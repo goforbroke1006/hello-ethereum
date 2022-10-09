@@ -1,5 +1,7 @@
 {
+  "type": "module",
   "dependencies": {
+    "alchemy-sdk": "^2.1.1",
     "web3": "^1.8.0"
   }
 }

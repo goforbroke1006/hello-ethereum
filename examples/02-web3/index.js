@@ -1,10 +1,10 @@
-const Web3 = require("web3");
+import Web3 from "web3";
+
+import {API_KEY, CONTRACT_ADDR} from "./config.js";
+
 
 (async function () {
-    const networkAddr = process.env.HELLO_ETH_ADDR;
-    if (undefined === networkAddr) {
-        throw Error('ERROR: HELLO_ETH_ADDR env var required!');
-    }
+    const networkAddr = `https://eth-goerli.g.alchemy.com/v2/${API_KEY}`
 
     console.log("network address:", networkAddr)
     const web3 = new Web3(new Web3.providers.HttpProvider(networkAddr));
@@ -22,9 +22,8 @@ const Web3 = require("web3");
     const feeHistory = await web3.eth.getFeeHistory(blockCount, blockNumber, []);
     console.log(feeHistory);
 
-    // const address = "????????";
-    // web3.eth.getBalance(address).then(wei => {
-    //     const balance = web3.utils.fromWei(wei, "ether");
-    //     console.log("balance:", balance);
-    // })
+    web3.eth.getBalance(CONTRACT_ADDR).then(wei => {
+        const balance = web3.utils.fromWei(wei, "ether");
+        console.log("balance:", balance);
+    })
 })();
