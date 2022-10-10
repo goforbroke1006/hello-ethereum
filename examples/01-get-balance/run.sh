@@ -1,15 +1,7 @@
 #!/bin/bash
 
-#curl -X POST localhost:8545 \
-#  -H "Content-Type: application/json" \
-#  --data \
-#  '
-#{
-#  "jsonrpc": "2.0",
-#  "method": "eth_getBalance",
-#  "params": ["0x0ADfCCa4B2a1132F82488546AcA086D7E24EA324", "latest"],
-#  "id": 1
-#}
-#'
+account=$(geth attach --exec "eth.accounts[0]" http://localhost:8545 | tr -d '"')
+echo "Account: ${account}"
 
-geth --goerli http://localhost:8545
+balance=$(geth attach --exec "eth.getBalance('${account}')" http://localhost:8545 | tr -d '"')
+echo "Balance: ${balance}"

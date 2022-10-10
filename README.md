@@ -1,13 +1,50 @@
 # hello-ethereum
 
-Motivation: create 2 wallet in test-net, send money between them.
+Up private blockchain for experiments.
 
-Problem: have no idea what steps required to do it.
+Based on [article](https://habr.com/ru/post/341466/) by m1rko.
+
+### Terms
+
+* account - ??? Is it the same as node? Have no idea.
+
+### Usage
+
+```shell
+# setup local env with private blockchain
+docker-compose up -d
+sleep 5
+
+# extract secret json file to host machine
+(docker-compose exec test-net find "/data/keystore/" -name "UTC--*" -exec sh -c "cat {}" \;) > secret.json
+```
+
+Go to chrome, install MetaMask extension, 
+import account from secret.json and with password "ethereum" (default for current docker-compose build).
+It can take a couple of minutes.
+
+Run Remix daemon to allow Remix web IDE access to your files:
+
+```shell
+remixd
+```
+
+Go to [Remix online](https://remix.ethereum.org/) and choose local workspace.
+
+Try to create new contract.
+
+??? How to run/use/apply the new contract?
+
+#### Basic example
+
+```shell
+bash ./examples/01-get-balance/run.sh
+```
 
 ### Samples
 
 1. Clone configs
-    
+
    ```shell
    cp examples/02-web3/config.dist.js examples/02-web3/config.js
    cp examples/03-alchemy/config.dist.js examples/03-alchemy/config.js

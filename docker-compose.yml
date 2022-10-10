@@ -3,13 +3,7 @@ version: "3"
 services:
   test-net:
     image: docker.io/goforbroke1006/ethereum:latest
-    command:
-      - --syncmode=light
-      - --goerli # connect to test network, allowed or --rinkeby or --goerli or --sepolia
-      - --http
-      - --http.addr=0.0.0.0
-      - --http.port=8545
-      - --http.corsdomain=*
-      - --http.api=personal,eth,net,web3
-    ports:
-      - "8545:8545"
+    ports: [ "8545:8545" ]
+    volumes:
+      - ./.docker-compose/test-net/root/.ethereum/:/root/.ethereum:rw
+      - ./.docker-compose/test-net/data/:/data/:rw
